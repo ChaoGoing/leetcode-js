@@ -60,6 +60,23 @@ const findLongestWord2 = () => {
 }
 
 
- /**
-  * 动态规划
-  */
+/**
+* 动态规划
+*/
+
+
+
+
+/**
+ * 类似类型题目： 扩张字符串
+ * 示例：
+    输入： 
+    S = "heeellooo"
+    words = ["hello", "hi", "helo"]
+    输出：1
+    解释：
+    我们能通过扩张 "hello" 的 "e" 和 "o" 来得到 "heeellooo"。
+    我们不能通过扩张 "helo" 来得到 "heeellooo" 因为 "ll" 的长度小于 3 。
+
+  解决： 双指针
+ */
