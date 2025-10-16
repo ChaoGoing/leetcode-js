@@ -35,6 +35,7 @@ const _calc = function (nums, ops) {
     default:
       break;
   }
+  console.log('left right symbol',left,right,symbol, ins)
   nums.push(ins)
   return ins
 }
@@ -109,4 +110,4 @@ var calculate_err = function(s) {
 }
 
 // console.log(_calc([1, 2, 6], ['+', '*']))
-console.log(calculate_err('(1+(4+5*2))+68)+2'))
+console.log(calculate_err('(1+(4*5+2))+68)+(6/2+8)'))
