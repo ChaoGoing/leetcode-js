@@ -2,7 +2,7 @@
 
 function validParenthese(str) {
   let target = str.split(""),
-    maxlen;
+    maxlen = 0;
   const dp = new Array(str.length).fill(0);
   for (let i = 1; i < str.length; i++) {
     if (target[i] == ")") {
@@ -19,7 +19,8 @@ function validParenthese(str) {
   return maxlen;
 }
 
-// validParenthese("()()((()))");
+const r = validParenthese("()()((()))(");
+console.log(r);
 
 // 栈
 var longestValidParentheses = function(s) {
@@ -42,4 +43,4 @@ var longestValidParentheses = function(s) {
   return maxans;
 }; 
 
-console.log(longestValidParentheses(")()()((()))"))
+// console.log(longestValidParentheses(")()()((()))"))
