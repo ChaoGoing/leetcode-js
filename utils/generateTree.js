@@ -11,6 +11,7 @@ class TreeNode{
 
 function generateTree(list) {
   // 通过一个栈来确定当前执行到哪个父节点
+  // 当右节点被填充完毕后，_currIndex++，指向下一个父节点
   let root = null;
   const _l = [];
   let _currIndex = 0;
@@ -41,11 +42,20 @@ function generateTree(list) {
 
 }
 
-
-
-
-
-
+const generateTree2 = (list) => {
+  if (!list.length) return null;
+  const nodes = list.map((v) => (v === null ? null : new TreeNode(v)));
+  const len = nodes.length;
+  for (let i = 0; i < len; i++) {
+    const n = nodes[i];
+    if (n === null) continue;
+    const l = 2 * i + 1;
+    const r = 2 * i + 2;
+    n.left = l < len ? nodes[l] : null;
+    n.right = r < len ? nodes[r] : null;
+  }
+  return nodes[0];
+}
 
 const test1 = [1, null, 3, 2]
 const test2 = [1, 2, 3, 4, 5, 6, 7, 8]
