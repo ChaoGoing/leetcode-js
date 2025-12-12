@@ -15,7 +15,9 @@
 */
 
 /**
+ * 懒惰标记，就是动作发出时，记录下动作，而并不真正的执行，等到真正应用时再执行。
  * 反转是一个O(n)的操作，通过sign记录是否需要反转，其他操作执行时基于是否反转进行变换
+ * 
  */
 
 
@@ -44,6 +46,7 @@ Bitset.prototype.fix = function (idx) {
  * @return {void}
  */
 Bitset.prototype.unfix = function (idx) {
+    console.log("unfix idx => ", idx, this.sign)
     this.list[idx] = this.sign ? 1 : 0
     return this
 };
@@ -53,6 +56,7 @@ Bitset.prototype.unfix = function (idx) {
  */
 Bitset.prototype.flip = function () {
     this.sign = !this.sign
+    console.log("flip => ", this.sign)
     return this
 };
 
@@ -127,7 +131,7 @@ bs.fix(3);     // 将 idx = 3 处的值更新为 1 ，此时 bitset = "00010" �
 bs.fix(1).toString();     // 将 idx = 1 处的值更新为 1 ，此时 bitset = "01010" 。
 bs.flip().toString();     // 翻转每一位上的值，此时 bitset = "10101" 。
 bs.all();      // 返回 False ，bitset 中的值不全为 1 。
-bs.unfix(0).toString();   // 将 idx = 0 处的值更新为 0 ，此时 bitset = "00101" 。
+bs.unfix(0).toString()   // 将 idx = 0 处的值更新为 0 ，此时 bitset = "00101" 。
 bs.flip().toString();     // 翻转每一位上的值，此时 bitset = "11010" 。
 bs.one();      // 返回 True ，至少存在一位的值为 1 。
 bs.unfix(0);   // 将 idx = 0 处的值更新为 0 ，此时 bitset = "01010" 。
